@@ -19,21 +19,21 @@ with Image.open(filename) as image:
     mostCommon = counter.most_common(10)
 
     color = []
-    occurance = []
+    occurrence = []
     for item in mostCommon:
 
         color.append('#%02x%02x%02x' % item[0])
-        occurance.append(item[1] / totalPixels * 100)
+        occurrence.append(item[1] / totalPixels * 100)
     print(mostCommon)
     print("")
     print(mostCommon[0])
 
     fig = plt.figure(
         FigureClass=Waffle,
-        rows=5,
-        columns=10,
+        rows=1,
+        columns=5,
         colors=color,
-        values=occurance,
+        values=occurrence,
         figsize=(5, 3)  # figsize is a parameter of matplotlib.pyplot.figure
     )
     plt.show()

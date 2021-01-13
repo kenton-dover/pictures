@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from PIL import Image
 from pywaffle import Waffle
-
+import os
 
 imageArray = []
 colorArray = []
@@ -79,7 +79,16 @@ def split_into_buckets(imageArray, depth):
 
 
 filename = "/Users/kentondover/Programming/python/pictures/pictures/0D3A0201.jpg"
-with Image.open(filename) as image:
+size = 128, 128
+
+
+file, ext = os.path.splitext(filename)
+im = Image.open(filename)
+im.thumbnail(size)
+im.save(file + ".thumbnail", "JPEG")
+
+
+with Image.open(filename.replace("jpg", "thumbnail")) as image:
     width, height = image.size
     reducedImage = np.zeros([height, width, 3], dtype=np.uint8)
     totalPixels = width * height

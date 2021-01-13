@@ -1,3 +1,5 @@
+import os
+import glob
 import matplotlib.pyplot as plt
 import numpy as np
 from PIL import Image
@@ -54,8 +56,8 @@ def plot_fig(colorArray):
 
     fig = plt.figure(
         FigureClass=Waffle,
-        rows=2,
-        columns=10,
+        rows=1,
+        columns=5,
         colors=color,
         values=occurance,
         figsize=(5, 3)  # figsize is a parameter of matplotlib.pyplot.figure
@@ -63,8 +65,19 @@ def plot_fig(colorArray):
     plt.show()
 
 
-filename = "/Users/kentondover/Programming/python/pictures/pictures/0D3A0201.jpg"
-with Image.open(filename) as image:
+filename = "/Users/kentondover/Programming/python/pictures/pictures/IMG_9911.jpg"
+
+
+size = 128, 128
+
+
+file, ext = os.path.splitext(filename)
+im = Image.open(filename)
+im.thumbnail(size)
+im.save(file + ".thumbnail", "JPEG")
+
+
+with Image.open(filename.replace("jpg", "thumbnail")) as image:
     width, height = image.size
     totalPixels = width * height
     data = np.asarray(image)
