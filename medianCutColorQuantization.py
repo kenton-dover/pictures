@@ -78,8 +78,8 @@ def split_into_buckets(imageArray, depth):
     split_into_buckets(imageArray[medianIndex:], depth-1)
 
 
-filename = "/Users/kentondover/Programming/python/pictures/pictures/0D3A0201.jpg"
-size = 128, 128
+filename = "/Users/kentondover/Programming/python/pictures/pictures/flamingo.jpg"
+size = 256, 256
 
 
 file, ext = os.path.splitext(filename)

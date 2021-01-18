@@ -1,0 +1,9 @@
+{
+    "python.pythonPath": "/usr/local/bin/python3",
+    "python.autoComplete.extraPaths": [
+        "/Users/kentondover/Programming/python/pictures/"
+    ],
+    "python.analysis.extraPaths": [
+        "/Users/kentondover/Programming/python/pictures/"
+    ],
+}
